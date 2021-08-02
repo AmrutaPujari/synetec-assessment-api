@@ -21,7 +21,7 @@ namespace SynetecAssessmentApi.Controllers
         {
             var bonusPoolService = new BonusPoolService();
 
-           
+            
                 return Ok(await bonusPoolService.CalculateAsync(
                     request.TotalBonusPoolAmount,
                     request.SelectedEmployeeId));
