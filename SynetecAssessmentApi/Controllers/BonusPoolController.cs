@@ -17,13 +17,18 @@ namespace SynetecAssessmentApi.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> CalculateBonus([FromBody] CalculateBonusDto request)
+        public async Task<IActionResult>  CalculateBonus([FromBody] CalculateBonusDto request)
         {
             var bonusPoolService = new BonusPoolService();
 
-            return Ok(await bonusPoolService.CalculateAsync(
-                request.TotalBonusPoolAmount,
-                request.SelectedEmployeeId));
+           
+                return Ok(await bonusPoolService.CalculateAsync(
+                    request.TotalBonusPoolAmount,
+                    request.SelectedEmployeeId));
+            
+
+
+
         }
-    }
+    }   
 }

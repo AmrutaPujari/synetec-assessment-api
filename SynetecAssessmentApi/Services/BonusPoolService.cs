@@ -52,8 +52,9 @@ namespace SynetecAssessmentApi.Services
         {
             //load the details of the selected employee using the Id
             Employee employee = await _dbContext.Employees
+                .Where(item => item.Id == selectedEmployeeId)
                 .Include(e => e.Department)
-                .FirstOrDefaultAsync(item => item.Id == selectedEmployeeId);
+                .SingleAsync();
 
             //get the total salary budget for the company
             int totalSalary = (int)_dbContext.Employees.Sum(item => item.Salary);
